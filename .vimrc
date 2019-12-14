@@ -1,103 +1,40 @@
-set nocompatible 
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-let highlight_balanced_quotes = 1 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-set background=dark 
-set statusline=%<%f%h%m%r%=%#MyHi#\ enc=%{&encoding}\ %4lL\ %3cC\ %4P:%L 
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 
-let highlight_function_name = 1 
-let python_highlight_numbers = 1 
-let python_highlight_builtins = 1   "was commented 
-let python_highlight_exceptions = 1 
-let python_highlight_space_errors = 1  "was commented 
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-syntax on 
+syntax on
 
-hi SpecialKey       ctermfg=4 
-hi NonText          cterm=bold 
-hi Directory        ctermfg=4 
-hi ErrorMsg         ctermbg=1 
-hi Search           ctermbg=3 
-hi MoreMsg          cterm=bold  ctermfg=2 
-hi ModeMsg          cterm=bold 
-hi LineNr           ctermfg=3 
-hi Question         cterm=bold  ctermfg=2 
-hi StatusLine       cterm=reverse 
-hi Title            cterm=bold  ctermfg=4 
-hi Visual           cterm=reverse 
-hi WarningMsg       ctermfg=1 
-hi Comment          cterm=bold ctermfg=4 
-hi Constant         ctermfg=2 
-hi Identifier       ctermfg=3 
-hi Statement        ctermfg=6 
-hi PreProc          ctermfg=5 
-hi Type             cterm=bold ctermfg=2 
-hi Special          ctermfg=2 
-hi Error            ctermbg=1 
-hi Todo             ctermbg=3 
-hi Operator         ctermfg=6 
-
-" yes, use mouse in text mode 
-
-set mouse=a 
-
-set ai 
-set nomodeline 
 set tabstop=4 
 set shiftwidth=4 
 set softtabstop=4 
 set smarttab 
 set expandtab 
-set bs=2 
-set splitbelow 
-set wildmenu 
-set nowrap 
-set number 
-set scrolloff=5               " keep at least 5 lines above/below 
-" set colorcolumn=120 
-set showmatch 
-" set ignorecase 
 
-set nohls 
-set nobackup 
-set noequalalways 
-set gdefault 
+
 set incsearch 
-set hlsearch 
-set history=500 
-set nostartofline 
-set laststatus=2 
+set hlsearch
+set scrolloff=5
+set wildmenu 
 set title 
-set cinoptions=t0,(0,)100,*100 
-  
-set ruler 
-set showcmd 
-set ttyfast 
-"set maxmem=1000000 
-"set maxmemtot=10000000 
-
+set nu
+hi CursorLine term=none cterm=none ctermbg=0  
+set cul                                           " highlight current line 
 
 " Get rid of annoying Q problem 
 command-bang Q q<bang> 
-"command Wq wq 
-"command W w 
-"command WQ wq 
 nnoremap ; : 
-  
-
-if v:lang =~ "utf8$" || v:lang =~ "UTF-8$" 
-    set fileencodings=utf-8,latin1 
-endif 
-
-set backspace=indent,eol,start 
-
-" Favorite Color Scheme 
-"colorscheme base16-tomorrow-night 
-set cul                                           " highlight current line 
-
-hi CursorLine term=none cterm=none ctermbg=0  
-
-
+ 
 " when we reload, tell vim to restore the cursor to the saved position 
 augroup JumpCursorOnEdit 
 au! 
